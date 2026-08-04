@@ -15,16 +15,10 @@ FONT_PATH = os.path.join(
 )
 
 def generate_qr(qr_type):
-    now = datetime.now()
-    refresh_time = now.replace(hour=5, minute=0, second=0, microsecond=0)
-
-    if now < refresh_time:
-        refresh_time -= timedelta(days=1)
-
     payload = {
         "id": 1,
         "lemdikId": 4,
-        "createdAt": refresh_time.isoformat(),
+        "createdAt": datetime.now().isoformat(),
         "type": qr_type
     }
     payload_json = json.dumps(payload)
