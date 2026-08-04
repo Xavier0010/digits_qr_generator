@@ -2,7 +2,7 @@ import io
 import base64
 import json
 import qrcode
-from datetime import datetime
+from datetime import datetime, timedelta
 from PIL import Image, ImageDraw, ImageFont
 from flask import Flask, render_template_string
 
