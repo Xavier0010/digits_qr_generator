@@ -3,7 +3,7 @@ import os
 import base64
 import json
 import qrcode
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from PIL import Image, ImageDraw, ImageFont
 from flask import Flask, render_template_string
 
@@ -15,10 +15,11 @@ FONT_PATH = os.path.join(
 )
 
 def generate_qr(qr_type):
+    WIB = timezone(timedelta(hours=7))
     payload = {
         "id": 1,
         "lemdikId": 4,
-        "createdAt": datetime.now().isoformat(),
+        "createdAt": datetime.now(WIB).isoformat(),
         "type": qr_type
     }
     payload_json = json.dumps(payload)
