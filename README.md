@@ -1,1 +1,2 @@
-# digits_qr_generator
+# **Daily QR Generator**
+> for digits
